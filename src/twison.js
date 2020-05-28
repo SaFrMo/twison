@@ -23,7 +23,10 @@ var Twison = {
   },
 
   convertPassage: function(passage) {
-  	var dict = {text: passage.innerHTML};
+  	var dict = {
+        text: passage.innerHTML,
+        translations: JSON.parse(passage.getAttribute('translations')).map(JSON.parse)
+    };
 
     var links = Twison.extractLinksFromText(dict.text);
     if (links) {
